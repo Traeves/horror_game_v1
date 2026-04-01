@@ -3,7 +3,22 @@ guid: 761161e6b5566504a9f03c7bead5d3e7
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: granite_tile_04_diff_4k
+    second: {fileID: 2800000, guid: 34f083667ac1e104b96d4ba69b6a3b25, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: granite_tile_04_nor_gl_4k
+    second: {fileID: 2800000, guid: a6be11538073c634890599fdb1e55fa6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: granite_tile_04_rough_4k
+    second: {fileID: 2800000, guid: 0195d8fe0af07064396f4260897df975, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

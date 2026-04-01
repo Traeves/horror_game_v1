@@ -3,7 +3,27 @@ guid: 14f4337ebf23af746b4b03fa963af952
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mosaic
+    second: {fileID: 2100000, guid: 0cba7a720c0522140a5de50d6e319e3b, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: interior_tiles_diff_4k
+    second: {fileID: 2800000, guid: 81af8c0a716266942a1b0cd466bf0f4c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: interior_tiles_nor_gl_4k
+    second: {fileID: 2800000, guid: 0fa171129db937b448c8811beec02fdf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: interior_tiles_rough_4k
+    second: {fileID: 2800000, guid: 33bde1f3d22fe0f40aab3d8d807e913d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
