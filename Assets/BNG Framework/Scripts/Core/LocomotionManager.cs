@@ -11,9 +11,9 @@ namespace BNG {
         /// Default locomotion to use if nothing stored in playerprefs. 0 = Teleport. 1 = SmoothLocomotion
         /// </summary>
         [Tooltip("Default locomotion to use if nothing stored in playerprefs. 0 = Teleport. 1 = SmoothLocomotion")]
-        public LocomotionType DefaultLocomotion = LocomotionType.Teleport;
+        public LocomotionType DefaultLocomotion = LocomotionType.SmoothLocomotion;
 
-        LocomotionType selectedLocomotion = LocomotionType.Teleport;
+        LocomotionType selectedLocomotion = LocomotionType.SmoothLocomotion;
         public LocomotionType SelectedLocomotion {
             get { return selectedLocomotion; }
         }
