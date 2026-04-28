@@ -13,6 +13,7 @@ public class AmeliaBehavoiur : MonoBehaviour
     private AudioSource audio;
     public AudioClip beep;
     public AudioClip death;
+    public GameObject BanshimentItem;
     void Start(){
         attackTresh = Random.Range(10,15);
         whenNextMove = Random.Range(10,15);
@@ -120,5 +121,14 @@ public class AmeliaBehavoiur : MonoBehaviour
     }
     void Amelia_Attack(){
         audio.PlayOneShot(death, 1f);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision Happened");
+        if(collision.gameObject == BanshimentItem)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
