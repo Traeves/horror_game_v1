@@ -85,49 +85,64 @@ public class AmeliaBehavoiur : MonoBehaviour
             if(foyer == 1)
             {
                 transform.position = new Vector3(10.8f,3.65f,23f);
-                //transform.rotation = new Quaternion.Euler(0, 90, 0);
+                transform.rotation = Quaternion.Euler(0, 90, 0);
             }
             else if(foyer == 2)
             {
                 transform.position = new Vector3(1.5f,3f,26.5f);
-                //transform.rotation = new Quaternion.Euler(0, 160, 0);
+                transform.rotation = Quaternion.Euler(0, 160, 0);
             }
             else if(foyer == 3)
             {
                 transform.position = new Vector3(-10.5f,4f,16.5f);
-                //transform.rotation = new Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else if(foyer == 4)
             {
                 transform.position = new Vector3(-9.75f,4f,39.5f);
-                //transform.rotation = new Quaternion.Euler(0, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
         if(move_to == 2 && rm.Player_Room != 2){//Left Exhibit
-            int LE = Random.Range(1,4);
+            int LE = Random.Range(1,2);
             if(LE == 1)
             {
-                transform.position = new Vector3(10.8f,3.65f,23f);
-                //transform.rotation = new Quaternion.Euler(0, 90, 0);
+                transform.position = new Vector3(-30f,4f,28.5f);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else if(LE == 2)
             {
-                transform.position = new Vector3(1.5f,3f,26.5f);
-                //transform.rotation = new Quaternion.Euler(0, 160, 0);
+                transform.position = new Vector3(-33.8f,3f,28.5f);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            else if(LE == 3)
+            else
             {
-                transform.position = new Vector3(-10.5f,4f,16.5f);
-                //transform.rotation = new Quaternion.Euler(0, 180, 0);
-            }
-            else if(LE == 4)
-            {
-                transform.position = new Vector3(-9.75f,4f,39.5f);
-                //transform.rotation = new Quaternion.Euler(0, 0, 0);
+                transform.position = new Vector3(-37.6f,5.1f,37f);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
         if(move_to == 3 && rm.Player_Room != 3){//Top left Exhibit
-            transform.position = new Vector3(-17,5,53);
+            int TLE = Random.Range(1,3);
+            if(TLE == 1)
+            {
+                transform.position = new Vector3(-11.55f,3.65f,53.25f);
+                transform.rotation = Quaternion.Euler(75, 0, 0);
+            }
+            else if(TLE == 2)
+            {
+                transform.position = new Vector3(1.5f,3,26.5f);
+                transform.rotation = Quaternion.Euler(0, 160, 0);
+            }
+            else if(TLE == 3)
+            {
+                transform.position = new Vector3(-10.5f,4,16.5f);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if(TLE == 4)
+            {
+                transform.position = new Vector3(-9.75f,4,39.5f);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         if(move_to == 4&& rm.Player_Room != 4){//Backroom
             transform.position = new Vector3(0,5,66);
@@ -139,11 +154,12 @@ public class AmeliaBehavoiur : MonoBehaviour
             transform.position = new Vector3(-21,3,31);
             if(rm.Player_Room == 2 || rm.Player_Room == 3 || rm.Player_Room == 7 || rm.Player_Room == 8)
             {
-                //transform.rotation = new Quaternion.Euler(0, 90, 0);
+                transform.rotation = Quaternion.Euler(0, 90, 0);
             }
             else
             {
-                //transform.rotation = new Quaternion.Euler(0, -90, 0);
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+
             }
         }
         if(move_to == 7&& rm.Player_Room != 7){//Left Hall to Exhibit 3
