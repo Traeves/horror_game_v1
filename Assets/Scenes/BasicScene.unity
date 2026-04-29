@@ -78020,7 +78020,7 @@ MonoBehaviour:
   pauseMenuCanvas: {fileID: 1832811306}
   menuDistance: 1.5
   xrCamera: {fileID: 891685149}
-  pauseAction: {fileID: 4860515764186564299, guid: e39f4b35a6db18348b41eb0262520e69,
+  pauseAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
 --- !u!4 &1581714408
 Transform:
