@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class AmeliaBehavoiur : MonoBehaviour
 {
@@ -18,12 +20,27 @@ public class AmeliaBehavoiur : MonoBehaviour
     public AudioClip findyou;
     public AudioClip death;
     public GameObject BanshimentItem;
-    void Start(){
-        attackTresh = Random.Range(20,30);
-        whenNextMove = Random.Range(10,25);
+
+    [Header("Jump Scare Settings")]
+    public Transform xrCamera;
+    public float distanceFromFace = 0.4f;
+    public float scareHoldTime = 2f;
+    public CanvasGroup fadeCanvas;
+    public float fadeDuration = 1f;
+    public string deathSceneName = "DeathScene";
+
+    private bool isDead = false;
+
+    void Start()
+    {
+        attackTresh = Random.Range(10, 15);
+        whenNextMove = Random.Range(10, 15);
         audio = GetComponent<AudioSource>();
+
+        if (xrCamera == null)
+            xrCamera = Camera.main.transform;
     }
-    
+
     void Update()
     {
         timepassed += Time.deltaTime; // Track the amount of Time passed
@@ -43,19 +60,20 @@ public class AmeliaBehavoiur : MonoBehaviour
             if(move > whenNextMove){
                 AmeliaMoves(-1);//She can move into the same room as you
                 move = 0f;
-                whenNextMove = Random.Range(5,10);
+                whenNextMove = Random.Range(5, 10);
                 AmeliaTell();
             }
         }
         if(state == 1 && rm.Player_Room == rm.Amelia_Room ){//Normal Gain Anger: 1 Anger per 2.5 seconds
             angerTimer += Time.deltaTime;
-            if(angerTimer > 2.5){
-                angerTimer=0;
-                if(attackTresh < anger){
+            if (angerTimer > 2.5)
+            {
+                angerTimer = 0;
+                if (attackTresh < anger)
+                {
                     Amelia_Attack();
                 }
                 anger++;
-                
             }
         }
         if(state == 1 && rm.Player_Room != rm.Amelia_Room ){//Normal Move
@@ -75,7 +93,7 @@ public class AmeliaBehavoiur : MonoBehaviour
         }
         if(state == 0 && timepassed >= 30f){//Neutral To Normal: 30 Seconds
             state = 1;
-            timepassed =0f;
+            timepassed = 0f;
         }
     }
     void AmeliaMoves(int room){
@@ -85,22 +103,22 @@ public class AmeliaBehavoiur : MonoBehaviour
             int foyer = Random.Range(1,4);
             if(foyer == 1)
             {
-                transform.position = new Vector3(10.8f,3.65f,23f);
+                transform.position = new Vector3(10.8f, 3.65f, 23f);
                 transform.rotation = Quaternion.Euler(0, 90, 0);
             }
-            else if(foyer == 2)
+            else if (foyer == 2)
             {
-                transform.position = new Vector3(1.5f,3f,26.5f);
+                transform.position = new Vector3(1.5f, 3f, 26.5f);
                 transform.rotation = Quaternion.Euler(0, 160, 0);
             }
-            else if(foyer == 3)
+            else if (foyer == 3)
             {
-                transform.position = new Vector3(-10.5f,4f,16.5f);
+                transform.position = new Vector3(-10.5f, 4f, 16.5f);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            else if(foyer == 4)
+            else if (foyer == 4)
             {
-                transform.position = new Vector3(-9.75f,4f,39.5f);
+                transform.position = new Vector3(-9.75f, 4f, 39.5f);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
@@ -108,17 +126,17 @@ public class AmeliaBehavoiur : MonoBehaviour
             int LE = Random.Range(1,2);
             if(LE == 1)
             {
-                transform.position = new Vector3(-30f,4f,28.5f);
+                transform.position = new Vector3(-30f, 4f, 28.5f);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            else if(LE == 2)
+            else if (LE == 2)
             {
-                transform.position = new Vector3(-33.8f,3f,28.5f);
+                transform.position = new Vector3(-33.8f, 3f, 28.5f);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else
             {
-                transform.position = new Vector3(-37.6f,5.1f,37f);
+                transform.position = new Vector3(-37.6f, 5.1f, 37f);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
@@ -126,22 +144,22 @@ public class AmeliaBehavoiur : MonoBehaviour
             int TLE = Random.Range(1,3);
             if(TLE == 1)
             {
-                transform.position = new Vector3(-11.55f,3.65f,53.25f);
+                transform.position = new Vector3(-11.55f, 3.65f, 53.25f);
                 transform.rotation = Quaternion.Euler(75, 0, 0);
             }
-            else if(TLE == 2)
+            else if (TLE == 2)
             {
-                transform.position = new Vector3(-11.8f,3.65f,55.5f);
+                transform.position = new Vector3(-11.8f, 3.65f, 55.5f);
                 transform.rotation = Quaternion.Euler(0, 55, 0);
             }
-            else if(TLE == 3)
+            else if (TLE == 3)
             {
-                transform.position = new Vector3(-12.74f,3.095f,57.542f);
+                transform.position = new Vector3(-12.74f, 3.095f, 57.542f);
                 transform.rotation = Quaternion.Euler(0, 50, 0);
             }
-            else if(TLE == 4)
+            else if (TLE == 4)
             {
-                transform.position = new Vector3(20.5f,3.095f,54.3f);
+                transform.position = new Vector3(20.5f, 3.095f, 54.3f);
                 transform.rotation = Quaternion.Euler(0, -90, 0);
             }
         }
@@ -156,31 +174,23 @@ public class AmeliaBehavoiur : MonoBehaviour
             if(rm.Player_Room == 2 || rm.Player_Room == 3 || rm.Player_Room == 7 || rm.Player_Room == 8)
             {
                 transform.rotation = Quaternion.Euler(0, 90, 0);
-            }
             else
-            {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
-            }
         }
         if(move_to == 7&& room != 7){//Left Hall to Exhibit 3
             transform.position = new Vector3(-31,3.095f,50);
             if(rm.Player_Room == 1 || rm.Player_Room == 2 || rm.Player_Room == 6)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
             else
-            {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
-            }
         }
         if(move_to == 8&& room != 8){//Left Hall to Backroom
             transform.position = new Vector3(-18,5,64);
             if(rm.Player_Room == 4 || rm.Player_Room == 5 || rm.Player_Room == 1)
             {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
-            }
             else
-            {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
@@ -227,38 +237,44 @@ public class AmeliaBehavoiur : MonoBehaviour
             }
         }
     }
-    void Amelia_Attack(){
-        if(state == 1) // Attack in the normal state
+
+    void Amelia_Attack()
+    {
+        isDead = true;
+        audio.PlayOneShot(foundyou, 0.5f);
+        StartCoroutine(JumpScareSequence());
+    }
+
+    IEnumerator JumpScareSequence()
+    {
+        // 1. Teleport to player's face
+        Vector3 facePosition = xrCamera.position + xrCamera.forward * distanceFromFace;
+        transform.position = facePosition;
+        transform.LookAt(xrCamera.position);
+        transform.Rotate(0f, 180f, 0f);
+
+        // 2. Hold the scare
+        yield return new WaitForSecondsRealtime(scareHoldTime);
+
+        // 3. Fade to black
+        float elapsed = 0f;
+        fadeCanvas.alpha = 0f;
+        while (elapsed < fadeDuration)
         {
-            int attack = Random.Range(1,4) + survivedAttacks;
-            if (attack >= 4)
-            {
-                
-            }
-            else
-            {
-                attackTresh = Random.Range(20,30) - (survivedAttacks*2);
-                whenNextMove = Random.Range(10,25) - (survivedAttacks*2);
-            }
+            elapsed += Time.unscaledDeltaTime;
+            fadeCanvas.alpha = Mathf.Clamp01(elapsed / fadeDuration);
+            yield return null;
         }
-        else{ // Attack in the Aggresive state
-            int attack = Random.Range(1,3) + survivedAttacks;
-            if (attack >= 3)
-            {
-                
-            }
-            else
-            {
-                attackTresh = Random.Range(10,20) - (survivedAttacks*2);
-                whenNextMove = 5;
-            }
-        }
+
+        // 4. Reset timeScale in case paused, then load death scene
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(deathSceneName);
     }
 
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision Happened");
-        if(collision.gameObject == BanshimentItem)
+        if (collision.gameObject == BanshimentItem)
         {
             audio.PlayOneShot(death, 0.5f);
             //gameObject.SetActive(false);
