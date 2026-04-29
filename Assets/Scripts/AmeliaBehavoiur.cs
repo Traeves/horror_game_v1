@@ -11,7 +11,11 @@ public class AmeliaBehavoiur : MonoBehaviour
     private float attackTresh;
     private float whenNextMove;
     private AudioSource audio;
-    public AudioClip beep;
+    public AudioClip humming;
+    public AudioClip iknowyou;
+    public AudioClip runfast;
+    public AudioClip findyou;
+    public AudioClip foundyou;
     public AudioClip death;
     public GameObject BanshimentItem;
     void Start(){
@@ -76,51 +80,36 @@ public class AmeliaBehavoiur : MonoBehaviour
     void AmeliaMoves(){
         //All of this is less temporary
         int move_to = Random.Range(1,13);
-        if(move_to == 1){
+        if(move_to == 1 && rm.Player_Room != 1){
             transform.position = new Vector3(1,5,25);
         }
         if(move_to == 2){
-            transform.position = new Vector3(32,5,34);
-        }
-        if(move_to == 3){
             transform.position = new Vector3(-32,5,34);
         }
-        if(move_to == 4){
-            transform.position = new Vector3(17,5,53);
-        }
-        if(move_to == 5){
+        if(move_to == 3){
             transform.position = new Vector3(-17,5,53);
         }
-        if(move_to == 6){
+        if(move_to == 4){
             transform.position = new Vector3(0,5,66);
         }
-        if(move_to == 7){
+        if(move_to == 5){
             transform.position = new Vector3(0,5,52);
         }
-        if(move_to == 8){
-            transform.position = new Vector3(22,5,30);
-        }
-        if(move_to == 9){
+        if(move_to == 6){
             transform.position = new Vector3(-22,5,30);
         }
-        if(move_to == 10){
-            transform.position = new Vector3(30,5,50);
-        }
-        if(move_to == 11){
+        if(move_to == 7){
             transform.position = new Vector3(-30,5,50);
         }
-        if(move_to == 12){
-            transform.position = new Vector3(18,5,64);
-        }
-        if(move_to == 13){
+        if(move_to == 8){
             transform.position = new Vector3(-18,5,64);
         }
     }
     void AmeliaTell(){
-        audio.PlayOneShot(beep, 0.5f);
+        audio.PlayOneShot(humming,0.2f);
     }
     void Amelia_Attack(){
-        audio.PlayOneShot(death, 1f);
+        audio.PlayOneShot(foundyou,0.5f);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -128,7 +117,8 @@ public class AmeliaBehavoiur : MonoBehaviour
         Debug.Log("Collision Happened");
         if(collision.gameObject == BanshimentItem)
         {
-            gameObject.SetActive(false);
+            audio.PlayOneShot(death, 0.5f);
+            //gameObject.SetActive(false);
         }
     }
 }
