@@ -44,6 +44,8 @@ public class AmeliaBehavoiur : MonoBehaviour
 
     void Update()
     {
+        if(isDead || isDefeated) return;
+
         timepassed += Time.deltaTime; // Track the amount of Time passed
         if(state == 2 && rm.Player_Room == rm.Amelia_Room ){//Aggresive Gain Anger: 1 Anger per 2 seconds
             angerTimer += Time.deltaTime;//Time between Anger Increasing
@@ -332,7 +334,7 @@ public class AmeliaBehavoiur : MonoBehaviour
     {
         // Play death sound, disable Amelia so she vanishes
         //audio.PlayOneShot(death, 0.5f);
-        gameObject.active = false;
+        //gameObject.active = false;
 
         // Brief pause so the sound plays before fading
         yield return new WaitForSecondsRealtime(1.5f);
