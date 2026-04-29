@@ -23,7 +23,7 @@ public class CrossSpawn : MonoBehaviour
         }
         else if(spawn == 4)
         {
-            ransform.position = new Vector3(-1.7f, 3.5f, 64.3f);
+            transform.position = new Vector3(-1.7f, 3.5f, 64.3f);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if(spawn == 5)

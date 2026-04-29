@@ -168,7 +168,7 @@ public class AmeliaBehavoiur : MonoBehaviour
             int TLE = Random.Range(1,3);
             if(TLE == 1)
             {
-                transform.position = new Vector3(-7.92f, 3.909f, 66.f);
+                transform.position = new Vector3(-7.92f, 3.909f, 66f);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             else if (TLE == 2)
