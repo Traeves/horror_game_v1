@@ -7,7 +7,6 @@ public class Purification : MonoBehaviour
     public GameObject purified = null;
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TRIGGERED");
         if(other == PurificationZone)
         {
             normal.active = false;

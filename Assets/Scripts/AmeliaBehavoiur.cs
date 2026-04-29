@@ -4,6 +4,7 @@ public class AmeliaBehavoiur : MonoBehaviour
 {
     public int state = 0; // 0 = Neutral, 1 = Roaming, 2 = Aggresive
     public float timepassed = 0f;
+    private int survivedAttacks = 0;
     public RoomManager rm;
     public float angerTimer = 0f;
     public float anger = 0;
@@ -15,39 +16,38 @@ public class AmeliaBehavoiur : MonoBehaviour
     public AudioClip iknowyou;
     public AudioClip runfast;
     public AudioClip findyou;
-    public AudioClip foundyou;
     public AudioClip death;
     public GameObject BanshimentItem;
     void Start(){
-        attackTresh = Random.Range(10,15);
-        whenNextMove = Random.Range(10,15);
+        attackTresh = Random.Range(20,30);
+        whenNextMove = Random.Range(10,25);
         audio = GetComponent<AudioSource>();
     }
     
     void Update()
     {
-        timepassed += Time.deltaTime;
-        if(state == 2 && rm.Player_Room == rm.Amelia_Room ){
-            angerTimer += Time.deltaTime;
+        timepassed += Time.deltaTime; // Track the amount of Time passed
+        if(state == 2 && rm.Player_Room == rm.Amelia_Room ){//Aggresive Gain Anger: 1 Anger per 2 seconds
+            angerTimer += Time.deltaTime;//Time between Anger Increasing
             if(angerTimer > 2){
                 angerTimer=0;
-                if(attackTresh < anger){
+                if(attackTresh < anger){ //Attempts to Attack
                     anger = 0;
                     Amelia_Attack();
                 }
                 anger++;
             }
         }
-        if(state == 2 && rm.Player_Room != rm.Amelia_Room ){
+        if(state == 2 && rm.Player_Room != rm.Amelia_Room ){//Aggresive Move
             move += Time.deltaTime;
             if(move > whenNextMove){
-                AmeliaMoves();
+                AmeliaMoves(-1);//She can move into the same room as you
                 move = 0f;
                 whenNextMove = Random.Range(5,10);
                 AmeliaTell();
             }
         }
-        if(state == 1 && rm.Player_Room == rm.Amelia_Room ){
+        if(state == 1 && rm.Player_Room == rm.Amelia_Room ){//Normal Gain Anger: 1 Anger per 2.5 seconds
             angerTimer += Time.deltaTime;
             if(angerTimer > 2.5){
                 angerTimer=0;
@@ -58,29 +58,30 @@ public class AmeliaBehavoiur : MonoBehaviour
                 
             }
         }
-        if(state == 1 && rm.Player_Room != rm.Amelia_Room ){
+        if(state == 1 && rm.Player_Room != rm.Amelia_Room ){//Normal Move
             move += Time.deltaTime;
             if(move > whenNextMove){
-                AmeliaMoves();
+                AmeliaMoves(rm.Player_Room);//She Cannot move into the same room as the player
                 move = 0f;
-                whenNextMove = Random.Range(10,15);
+                whenNextMove = Random.Range(10,25);
+                if(anger > 0) anger--;//Anger Reduces in Normal Mode
                 AmeliaTell();
             }
         }
-        if(state == 1 && timepassed >= 30f){
+        if(state == 1 && timepassed >= 90f){//Normal To Aggresive: 1 Minute 30 Seconds
             state = 2; //Ranges should be shorter than Normal
-            attackTresh = Random.Range(5,10);
+            attackTresh = Random.Range(10,20);
             whenNextMove = Random.Range(5,10);
         }
-        if(state == 0 && timepassed >= 10f){
+        if(state == 0 && timepassed >= 30f){//Neutral To Normal: 30 Seconds
             state = 1;
             timepassed =0f;
         }
     }
-    void AmeliaMoves(){
+    void AmeliaMoves(int room){
         //All of this is less temporary
         int move_to = Random.Range(1,13);
-        if(move_to == 1 && rm.Player_Room != 1){// Foyer
+        if(move_to == 1 && room != 1){// Foyer
             int foyer = Random.Range(1,4);
             if(foyer == 1)
             {
@@ -103,7 +104,7 @@ public class AmeliaBehavoiur : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
-        if(move_to == 2 && rm.Player_Room != 2){//Left Exhibit
+        if(move_to == 2 && room != 2){//Left Exhibit
             int LE = Random.Range(1,2);
             if(LE == 1)
             {
@@ -121,7 +122,7 @@ public class AmeliaBehavoiur : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
-        if(move_to == 3 && rm.Player_Room != 3){//Top left Exhibit
+        if(move_to == 3 && room != 3){//Top left Exhibit
             int TLE = Random.Range(1,3);
             if(TLE == 1)
             {
@@ -144,13 +145,13 @@ public class AmeliaBehavoiur : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, -90, 0);
             }
         }
-        if(move_to == 4&& rm.Player_Room != 4){//Backroom
+        if(move_to == 4&& room != 4){//Backroom
             transform.position = new Vector3(0,5,66);
         }
-        if(move_to == 5&& rm.Player_Room != 5){//Main Hall
+        if(move_to == 5&& room != 5){//Main Hall
             transform.position = new Vector3(0,5,52);
         }
-        if(move_to == 6&& rm.Player_Room != 6){//Left Hall
+        if(move_to == 6&& room != 6){//Left Hall
             transform.position = new Vector3(-21,3,31);
             if(rm.Player_Room == 2 || rm.Player_Room == 3 || rm.Player_Room == 7 || rm.Player_Room == 8)
             {
@@ -161,7 +162,7 @@ public class AmeliaBehavoiur : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, -90, 0);
             }
         }
-        if(move_to == 7&& rm.Player_Room != 7){//Left Hall to Exhibit 3
+        if(move_to == 7&& room != 7){//Left Hall to Exhibit 3
             transform.position = new Vector3(-31,3.095f,50);
             if(rm.Player_Room == 1 || rm.Player_Room == 2 || rm.Player_Room == 6)
             {
@@ -172,7 +173,7 @@ public class AmeliaBehavoiur : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, -90, 0);
             }
         }
-        if(move_to == 8&& rm.Player_Room != 8){//Left Hall to Backroom
+        if(move_to == 8&& room != 8){//Left Hall to Backroom
             transform.position = new Vector3(-18,5,64);
             if(rm.Player_Room == 4 || rm.Player_Room == 5 || rm.Player_Room == 1)
             {
@@ -185,10 +186,73 @@ public class AmeliaBehavoiur : MonoBehaviour
         }
     }
     void AmeliaTell(){
-        audio.PlayOneShot(humming,0.2f);
+        if(state == 1)
+        {
+            int tell = Random.Range(1,15);
+            if(tell == 1)
+            {
+                audio.PlayOneShot(humming, 0.2f);
+            }
+            else if(tell == 4)
+            {
+                audio.PlayOneShot(runfast,0.2f);
+            }
+            else if (tell == 6)
+            {
+                audio.PlayOneShot(iknowyou,0.2f);
+            }
+            else if (tell == 11)
+            {
+                audio.PlayOneShot(findyou,0.2f);
+            }
+        }
+        if(state == 2)
+        {
+            int tell = Random.Range(1,30); // She starts to get less talkative to Catch you off guard
+            if(tell == 1)
+            {
+                audio.PlayOneShot(humming, 0.2f);
+            }
+            else if(tell == 4)
+            {
+                audio.PlayOneShot(runfast,0.2f);
+            }
+            else if (tell == 6)
+            {
+                audio.PlayOneShot(iknowyou,0.2f);
+            }
+            else if (tell == 11)
+            {
+                audio.PlayOneShot(findyou,0.2f);
+            }
+        }
     }
     void Amelia_Attack(){
-        audio.PlayOneShot(foundyou,0.5f);
+        if(state == 1) // Attack in the normal state
+        {
+            int attack = Random.Range(1,4) + survivedAttacks;
+            if (attack >= 4)
+            {
+                
+            }
+            else
+            {
+                attackTresh = Random.Range(20,30) - (survivedAttacks*2);
+                whenNextMove = Random.Range(10,25) - (survivedAttacks*2);
+            }
+        }
+        else{ // Attack in the Aggresive state
+            int attack = Random.Range(1,3) + survivedAttacks;
+            if (attack >= 3)
+            {
+                
+            }
+            else
+            {
+                attackTresh = Random.Range(10,20) - (survivedAttacks*2);
+                whenNextMove = 5;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)

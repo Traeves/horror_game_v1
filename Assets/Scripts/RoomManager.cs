@@ -5,6 +5,9 @@ public class RoomManager : MonoBehaviour
     public int Player_Room = -1;
     public int Amelia_Room = -1;
 
+
+        //ALL OF THE BELOW IS CURRENTLY WRONG
+
     //1 = Foyer
     //2 = Right Exhibit
     //3 = Left Exhibit
