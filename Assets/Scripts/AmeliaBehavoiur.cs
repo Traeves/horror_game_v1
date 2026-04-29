@@ -30,6 +30,7 @@ public class AmeliaBehavoiur : MonoBehaviour
     public string deathSceneName = "DeathScene";
 
     private bool isDead = false;
+    private bool isDefeated = false;
 
     void Start()
     {
@@ -271,13 +272,36 @@ public class AmeliaBehavoiur : MonoBehaviour
         SceneManager.LoadScene(deathSceneName);
     }
 
+    IEnumerator WinSequence()
+    {
+        // Play death sound, disable Amelia so she vanishes
+        audio.PlayOneShot(death, 0.5f);
+        GetComponent<Renderer>().enabled = false;
+
+        // Brief pause so the sound plays before fading
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        // Fade to black then load win scene
+        float elapsed = 0f;
+        fadeCanvas.alpha = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            fadeCanvas.alpha = Mathf.Clamp01(elapsed / fadeDuration);
+            yield return null;
+        }
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("WinScene");
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision Happened");
-        if (collision.gameObject == BanshimentItem)
+        if (collision.gameObject == BanshimentItem && !isDefeated)
         {
-            audio.PlayOneShot(death, 0.5f);
-            //gameObject.SetActive(false);
+            isDefeated = true;
+            StartCoroutine(WinSequence());
         }
     }
 }
