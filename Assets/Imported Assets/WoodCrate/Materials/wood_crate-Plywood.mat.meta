@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c3fa00db8e0adc04c9c9dfa4d2acd898
+timeCreated: 1474763860
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72305
+  packageName: Wood Crate
+  packageVersion: 1.0
+  assetPath: Assets/WoodCrate/Materials/wood_crate-Plywood.mat
+  uploadId: 138714
