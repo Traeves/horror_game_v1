@@ -27,17 +27,20 @@ EditorBuildSettings:
     path: Assets/Imported Assets/BNG Framework/Scenes/Quest Demo.unity
     guid: 20abffae0ea5004438fe0e95b6627841
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2a7d96a71f624c94baa1748aeb94dd77
+  - enabled: 1
     path: Assets/Scenes/BasicScene.unity
     guid: 4e9fef26e6adb88479ad1b9834a32d94
   - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 2676426a0e0e1ba49b7bb60b061e94ea
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 2a7d96a71f624c94baa1748aeb94dd77
+    path: Assets/Scenes/WinScene.unity
+    guid: 1b1599baa5dcb954eaeaf1aa4600f55f
   - enabled: 1
     path: Assets/Scenes/Credits.unity
-    guid: 3a2e00abd6650564297cb1eafe193c4d
+    guid: a9521d59d4ef85942986b7ad0659690c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 06209ae0c2896a341a49fbebfe8ab28e,
       type: 2}
