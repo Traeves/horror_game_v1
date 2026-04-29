@@ -62066,6 +62066,36 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7629941899249377296, guid: 0c31f734f1aaf0645b44c35e611d6483,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.38913485
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629941899249377296, guid: 0c31f734f1aaf0645b44c35e611d6483,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.014890613
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629941899249377296, guid: 0c31f734f1aaf0645b44c35e611d6483,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.21311544
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629941899249377296, guid: 0c31f734f1aaf0645b44c35e611d6483,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -3.1307734e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629941899249377296, guid: 0c31f734f1aaf0645b44c35e611d6483,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0015549455
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629941899249377296, guid: 0c31f734f1aaf0645b44c35e611d6483,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.011581214
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64634,8 +64664,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.035130978, y: 0.027753592, z: 0.25336838}
-  m_Center: {x: -0.00064229965, y: -0.00020420551, z: -0.036884308}
+  m_Size: {x: 0.035130978, y: 0.027753592, z: 0.25833225}
+  m_Center: {x: -0.00064229965, y: -0.00020420551, z: -0.01578474}
 --- !u!54 &1291464501
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64672,7 +64702,7 @@ Transform:
   m_GameObject: {fileID: 1291464497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.24, y: 3, z: 27.16}
+  m_LocalPosition: {x: -11.852, y: 3.116, z: 52.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -102119,7 +102149,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_Name
-      value: Wooden Cross
+      value: Wooden Cross MAT
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
@@ -104043,10 +104073,10 @@ SceneRoots:
   - {fileID: 1440434090}
   - {fileID: 2100926816}
   - {fileID: 1490300181}
-  - {fileID: 1701687160}
   - {fileID: 1326226987}
   - {fileID: 1581714408}
   - {fileID: 1832811310}
   - {fileID: 897960212}
+  - {fileID: 1701687160}
   - {fileID: 1291464502}
   - {fileID: 1391958199}
