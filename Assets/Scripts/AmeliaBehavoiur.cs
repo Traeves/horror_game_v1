@@ -332,7 +332,7 @@ public class AmeliaBehavoiur : MonoBehaviour
     {
         // Play death sound, disable Amelia so she vanishes
         //audio.PlayOneShot(death, 0.5f);
-        GetComponent<Renderer>().enabled = false;
+        gameObject.active = false;
 
         // Brief pause so the sound plays before fading
         yield return new WaitForSecondsRealtime(1.5f);
