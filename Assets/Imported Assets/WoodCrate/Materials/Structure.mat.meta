@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 909c5792fe920e941ad88df35722c5d6
+timeCreated: 1474763391
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72305
+  packageName: Wood Crate
+  packageVersion: 1.0
+  assetPath: Assets/WoodCrate/Materials/Structure.mat
+  uploadId: 138714
