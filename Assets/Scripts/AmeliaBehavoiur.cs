@@ -34,8 +34,8 @@ public class AmeliaBehavoiur : MonoBehaviour
 
     void Start()
     {
-        attackTresh = Random.Range(10, 15);
-        whenNextMove = Random.Range(10, 15);
+        attackTresh = Random.Range(20, 30);
+        whenNextMove = Random.Range(15, 20);
         audio = GetComponent<AudioSource>();
 
         if (xrCamera == null)
@@ -175,23 +175,31 @@ public class AmeliaBehavoiur : MonoBehaviour
             if(rm.Player_Room == 2 || rm.Player_Room == 3 || rm.Player_Room == 7 || rm.Player_Room == 8)
             {
                 transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
             else
+            {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
         }
         if(move_to == 7&& room != 7){//Left Hall to Exhibit 3
             transform.position = new Vector3(-31,3.095f,50);
             if(rm.Player_Room == 1 || rm.Player_Room == 2 || rm.Player_Room == 6)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
             else
+            {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
         }
         if(move_to == 8&& room != 8){//Left Hall to Backroom
             transform.position = new Vector3(-18,5,64);
             if(rm.Player_Room == 4 || rm.Player_Room == 5 || rm.Player_Room == 1)
             {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
             else
+            {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
@@ -241,9 +249,37 @@ public class AmeliaBehavoiur : MonoBehaviour
 
     void Amelia_Attack()
     {
-        isDead = true;
-        audio.PlayOneShot(foundyou, 0.5f);
-        StartCoroutine(JumpScareSequence());
+        if(state == 1) // Attack in the normal state
+        {
+            int attack = Random.Range(1,4) + survivedAttacks;
+            if (attack >= 4)
+            {
+                isDead = true;
+                //audio.PlayOneShot(foundyou, 0.5f);
+                StartCoroutine(JumpScareSequence());
+            }
+            else
+            {
+                attackTresh = Random.Range(20,30) - (survivedAttacks*2);
+                whenNextMove = Random.Range(10,25) - (survivedAttacks*2);
+            }
+        }
+        else{ // Attack in the Aggresive state
+            int attack = Random.Range(1,3) + survivedAttacks;
+            if (attack >= 3)
+            {
+                isDead = true;
+                //audio.PlayOneShot(foundyou, 0.5f);
+                StartCoroutine(JumpScareSequence());
+            }
+            else
+            {
+                attackTresh = Random.Range(10,20) - (survivedAttacks*2);
+                whenNextMove = 5;
+            }
+        }
+
+        
     }
 
     IEnumerator JumpScareSequence()
@@ -275,7 +311,7 @@ public class AmeliaBehavoiur : MonoBehaviour
     IEnumerator WinSequence()
     {
         // Play death sound, disable Amelia so she vanishes
-        audio.PlayOneShot(death, 0.5f);
+        //audio.PlayOneShot(death, 0.5f);
         GetComponent<Renderer>().enabled = false;
 
         // Brief pause so the sound plays before fading

@@ -622,17 +622,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4528
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.988
+      value: 8.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.1135
+      value: 50.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
@@ -848,7 +848,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -19283,13 +19283,12 @@ MonoBehaviour:
   iknowyou: {fileID: 8300000, guid: 50bc1d2da662a9d4897f962416c629d1, type: 3}
   runfast: {fileID: 8300000, guid: 9d20e54db4eecd040ab397f2638245f6, type: 3}
   findyou: {fileID: 8300000, guid: cac672cbfc958744981a9ab74e20c12d, type: 3}
-  foundyou: {fileID: 8300000, guid: c8d9846b290d03b4fa642b6e31b2ffae, type: 3}
   death: {fileID: 8300000, guid: 69daec9681b2dda4490b64b2e60b6c9b, type: 3}
   BanshimentItem: {fileID: 11013299}
-  xrCamera: {fileID: 891685149}
+  xrCamera: {fileID: 0}
   distanceFromFace: 0.4
   scareHoldTime: 2
-  fadeCanvas: {fileID: 897960208}
+  fadeCanvas: {fileID: 0}
   fadeDuration: 1
   deathSceneName: DeathScene
 --- !u!82 &417559389
@@ -101764,17 +101763,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.23
+      value: -0.587
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.988
+      value: 5.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.111
+      value: 23.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7ae297724fb8dc5439c78306847f2bd8,
         type: 3}
@@ -101985,7 +101984,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
