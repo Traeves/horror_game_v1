@@ -31793,6 +31793,10 @@ PrefabInstance:
       value: wood_crate
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 15c052f18ffecc149bcdecac436fe993, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 15c052f18ffecc149bcdecac436fe993, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -63757,13 +63761,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219237436}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0.0685}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1391958199}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1222342530
 GameObject:
   m_ObjectHideFlags: 0
@@ -72560,6 +72564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wood_crate
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 15c052f18ffecc149bcdecac436fe993, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15c052f18ffecc149bcdecac436fe993, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.74
@@ -73676,13 +73684,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429650886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.238, y: 0.986, z: 0.239}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.238, y: 0.98600006, z: 0.2389996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 526784778}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1430787799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81359,8 +81367,7 @@ MonoBehaviour:
   pauseMenuCanvas: {fileID: 1832811306}
   menuDistance: 1.5
   xrCamera: {fileID: 891685149}
-  pauseAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
-    type: 3}
+  pauseAction: {fileID: 0}
 --- !u!4 &1581714408
 Transform:
   m_ObjectHideFlags: 0
@@ -87613,6 +87620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d49c7371ebf97643a42e44ed119e590,
+        type: 3}
+      propertyPath: m_TagString
+      value: Amelia
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -96659,13 +96671,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894445844}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0.0685}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291464502}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1895272741
 PrefabInstance:
   m_ObjectHideFlags: 0
