@@ -34,8 +34,8 @@ public class AmeliaBehavoiur : MonoBehaviour
 
     void Start()
     {
-        attackTresh = Random.Range(20, 30);
-        whenNextMove = Random.Range(15, 20);
+        attackTresh = Random.Range(20, 31);
+        whenNextMove = Random.Range(15, 21);
         audio = GetComponent<AudioSource>();
 
         if (xrCamera == null)
@@ -61,7 +61,7 @@ public class AmeliaBehavoiur : MonoBehaviour
             if(move > whenNextMove){
                 AmeliaMoves(-1);//She can move into the same room as you
                 move = 0f;
-                whenNextMove = Random.Range(5, 10);
+                whenNextMove = Random.Range(5, 11);
                 AmeliaTell();
             }
         }
@@ -82,15 +82,15 @@ public class AmeliaBehavoiur : MonoBehaviour
             if(move > whenNextMove){
                 AmeliaMoves(rm.Player_Room);//She Cannot move into the same room as the player
                 move = 0f;
-                whenNextMove = Random.Range(10,25);
+                whenNextMove = Random.Range(10,26);
                 if(anger > 0) anger--;//Anger Reduces in Normal Mode
                 AmeliaTell();
             }
         }
         if(state == 1 && timepassed >= 90f){//Normal To Aggresive: 1 Minute 30 Seconds
             state = 2; //Ranges should be shorter than Normal
-            attackTresh = Random.Range(10,20);
-            whenNextMove = Random.Range(5,10);
+            attackTresh = Random.Range(10,21);
+            whenNextMove = Random.Range(5,11);
         }
         if(state == 0 && timepassed >= 30f){//Neutral To Normal: 30 Seconds
             state = 1;
@@ -99,9 +99,9 @@ public class AmeliaBehavoiur : MonoBehaviour
     }
     void AmeliaMoves(int room){
         //All of this is less temporary
-        int move_to = Random.Range(1,13);
+        int move_to = Random.Range(1,9);
         if(move_to == 1 && room != 1){// Foyer
-            int foyer = Random.Range(1,4);
+            int foyer = Random.Range(1,5);
             if(foyer == 1)
             {
                 transform.position = new Vector3(10.8f, 3.65f, 23f);
@@ -124,7 +124,7 @@ public class AmeliaBehavoiur : MonoBehaviour
             }
         }
         if(move_to == 2 && room != 2){//Left Exhibit
-            int LE = Random.Range(1,2);
+            int LE = Random.Range(1,3);
             if(LE == 1)
             {
                 transform.position = new Vector3(-30f, 4f, 28.5f);
@@ -142,7 +142,7 @@ public class AmeliaBehavoiur : MonoBehaviour
             }
         }
         if(move_to == 3 && room != 3){//Top left Exhibit
-            int TLE = Random.Range(1,3);
+            int TLE = Random.Range(1,5);
             if(TLE == 1)
             {
                 transform.position = new Vector3(-11.55f, 3.65f, 53.25f);
@@ -165,10 +165,30 @@ public class AmeliaBehavoiur : MonoBehaviour
             }
         }
         if(move_to == 4&& room != 4){//Backroom
-            transform.position = new Vector3(0,5,66);
+            int TLE = Random.Range(1,3);
+            if(TLE == 1)
+            {
+                transform.position = new Vector3(-7.92f, 3.909f, 66.f);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (TLE == 2)
+            {
+                transform.position = new Vector3(-0.045f, 3.043f, 63.675f);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         if(move_to == 5&& room != 5){//Main Hall
-            transform.position = new Vector3(0,5,52);
+            int TLE = Random.Range(1,3);
+            if(TLE == 1)
+            {
+                transform.position = new Vector3(-2.578f, 3.12f, 53.59f);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (TLE == 2)
+            {
+                transform.position = new Vector3(-2.64f, 3.12f, 48.31f);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         if(move_to == 6&& room != 6){//Left Hall
             transform.position = new Vector3(-21,3,31);
@@ -207,7 +227,7 @@ public class AmeliaBehavoiur : MonoBehaviour
     void AmeliaTell(){
         if(state == 1)
         {
-            int tell = Random.Range(1,15);
+            int tell = Random.Range(1,16);
             if(tell == 1)
             {
                 audio.PlayOneShot(humming, 0.2f);
@@ -227,7 +247,7 @@ public class AmeliaBehavoiur : MonoBehaviour
         }
         if(state == 2)
         {
-            int tell = Random.Range(1,30); // She starts to get less talkative to Catch you off guard
+            int tell = Random.Range(1,31); // She starts to get less talkative to Catch you off guard
             if(tell == 1)
             {
                 audio.PlayOneShot(humming, 0.2f);
@@ -266,7 +286,7 @@ public class AmeliaBehavoiur : MonoBehaviour
         }
         else{ // Attack in the Aggresive state
             int attack = Random.Range(1,3) + survivedAttacks;
-            if (attack >= 3)
+            if (attack >= 2)
             {
                 isDead = true;
                 //audio.PlayOneShot(foundyou, 0.5f);
