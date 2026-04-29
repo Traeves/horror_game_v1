@@ -130,18 +130,18 @@ public class AmeliaBehavoiur : MonoBehaviour
             }
             else if(TLE == 2)
             {
-                transform.position = new Vector3(1.5f,3,26.5f);
-                transform.rotation = Quaternion.Euler(0, 160, 0);
+                transform.position = new Vector3(-11.8f,3.65f,55.5f);
+                transform.rotation = Quaternion.Euler(0, 55, 0);
             }
             else if(TLE == 3)
             {
-                transform.position = new Vector3(-10.5f,4,16.5f);
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                transform.position = new Vector3(-12.74f,3.095f,57.542f);
+                transform.rotation = Quaternion.Euler(0, 50, 0);
             }
             else if(TLE == 4)
             {
-                transform.position = new Vector3(-9.75f,4,39.5f);
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.position = new Vector3(20.5f,3.095f,54.3f);
+                transform.rotation = Quaternion.Euler(0, -90, 0);
             }
         }
         if(move_to == 4&& rm.Player_Room != 4){//Backroom
@@ -159,14 +159,29 @@ public class AmeliaBehavoiur : MonoBehaviour
             else
             {
                 transform.rotation = Quaternion.Euler(0, -90, 0);
-
             }
         }
         if(move_to == 7&& rm.Player_Room != 7){//Left Hall to Exhibit 3
-            transform.position = new Vector3(-30,5,50);
+            transform.position = new Vector3(-31,3.095f,50);
+            if(rm.Player_Room == 1 || rm.Player_Room == 2 || rm.Player_Room == 6)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
         }
         if(move_to == 8&& rm.Player_Room != 8){//Left Hall to Backroom
             transform.position = new Vector3(-18,5,64);
+            if(rm.Player_Room == 4 || rm.Player_Room == 5 || rm.Player_Room == 1)
+            {
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
     void AmeliaTell(){
