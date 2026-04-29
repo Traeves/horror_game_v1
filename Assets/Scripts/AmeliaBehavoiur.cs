@@ -80,28 +80,76 @@ public class AmeliaBehavoiur : MonoBehaviour
     void AmeliaMoves(){
         //All of this is less temporary
         int move_to = Random.Range(1,13);
-        if(move_to == 1 && rm.Player_Room != 1){
-            transform.position = new Vector3(1,5,25);
+        if(move_to == 1 && rm.Player_Room != 1){// Foyer
+            int foyer = Random.Range(1,4);
+            if(foyer == 1)
+            {
+                transform.position = new Vector3(10.8f,3.65f,23f);
+                //transform.rotation = new Quaternion.Euler(0, 90, 0);
+            }
+            else if(foyer == 2)
+            {
+                transform.position = new Vector3(1.5f,3f,26.5f);
+                //transform.rotation = new Quaternion.Euler(0, 160, 0);
+            }
+            else if(foyer == 3)
+            {
+                transform.position = new Vector3(-10.5f,4f,16.5f);
+                //transform.rotation = new Quaternion.Euler(0, 180, 0);
+            }
+            else if(foyer == 4)
+            {
+                transform.position = new Vector3(-9.75f,4f,39.5f);
+                //transform.rotation = new Quaternion.Euler(0, 0, 0);
+            }
         }
-        if(move_to == 2){
-            transform.position = new Vector3(-32,5,34);
+        if(move_to == 2 && rm.Player_Room != 2){//Left Exhibit
+            int LE = Random.Range(1,4);
+            if(LE == 1)
+            {
+                transform.position = new Vector3(10.8f,3.65f,23f);
+                //transform.rotation = new Quaternion.Euler(0, 90, 0);
+            }
+            else if(LE == 2)
+            {
+                transform.position = new Vector3(1.5f,3f,26.5f);
+                //transform.rotation = new Quaternion.Euler(0, 160, 0);
+            }
+            else if(LE == 3)
+            {
+                transform.position = new Vector3(-10.5f,4f,16.5f);
+                //transform.rotation = new Quaternion.Euler(0, 180, 0);
+            }
+            else if(LE == 4)
+            {
+                transform.position = new Vector3(-9.75f,4f,39.5f);
+                //transform.rotation = new Quaternion.Euler(0, 0, 0);
+            }
         }
-        if(move_to == 3){
+        if(move_to == 3 && rm.Player_Room != 3){//Top left Exhibit
             transform.position = new Vector3(-17,5,53);
         }
-        if(move_to == 4){
+        if(move_to == 4&& rm.Player_Room != 4){//Backroom
             transform.position = new Vector3(0,5,66);
         }
-        if(move_to == 5){
+        if(move_to == 5&& rm.Player_Room != 5){//Main Hall
             transform.position = new Vector3(0,5,52);
         }
-        if(move_to == 6){
-            transform.position = new Vector3(-22,5,30);
+        if(move_to == 6&& rm.Player_Room != 6){//Left Hall
+            transform.position = new Vector3(-21,3,31);
+            if(rm.Player_Room == 2 || rm.Player_Room == 3 || rm.Player_Room == 7 || rm.Player_Room == 8)
+            {
+                //transform.rotation = new Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                //transform.rotation = new Quaternion.Euler(0, -90, 0);
+            }
         }
-        if(move_to == 7){
+        if(move_to == 7&& rm.Player_Room != 7){//Left Hall to Exhibit 3
             transform.position = new Vector3(-30,5,50);
         }
-        if(move_to == 8){
+        if(move_to == 8&& rm.Player_Room != 8){//Left Hall to Backroom
             transform.position = new Vector3(-18,5,64);
         }
     }
